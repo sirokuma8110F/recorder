@@ -1,47 +1,75 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>trereco</title>
-                <link rel="stylesheet" href="styles.css">
-                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/onsenui/css/onsenui.min.css">
-                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/onsenui/css/onsen-css-components.min.css">
-                            <script src="https://cdn.jsdelivr.net/npm/onsenui/js/onsenui.min.js"></script>
-                                <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
-                                    <script src="https://unpkg.com/wavesurfer.js"></script>
-                                    </head>
-                                    <body>
-                                        <ons-page>
-                                                <ons-toolbar>
-                                                            <div class="center">Audio Recorder</div>
-                                                                    </ons-toolbar>
-                                                                            <div class="content">
-                                                                                        <div class="recorder">
-                                                                                                        <ons-button id="start">Start Recording</ons-button>
-                                                                                                                        <ons-button id="stop" disabled>Stop Recording</ons-button>
-                                                                                                                                        <ons-button id="play" disabled>Play</ons-button>
-                                                                                                                                                        <ons-button id="download" disabled>Download</ons-button>
-                                                                                                                                                                        <ons-list>
-                                                                                                                                                                                            <ons-list-item>
-                                                                                                                                                                                                                    <label for="noiseReduction" class="center">Noise Reduction:</label>
-                                                                                                                                                                                                                                            <div class="right"><ons-switch id="noiseReduction"></ons-switch></div>
-                                                                                                                                                                                                                                                                </ons-list-item>
-                                                                                                                                                                                                                                                                                    <ons-list-item>
-                                                                                                                                                                                                                                                                                                            <label for="format" class="center">Output Format:</label>
-                                                                                                                                                                                                                                                                                                                                    <div class="right">
-                                                                                                                                                                                                                                                                                                                                                                <ons-select id="format">
-                                                                                                                                                                                                                                                                                                                                                                                                <option value="wav">WAV</option>
-                                                                                                                                                                                                                                                                                                                                                                                                                                <option value="mp3">MP3</option>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                <option value="m4a">M4A</option>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ons-select>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </ons-list-item>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </ons-list>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div id="waveform"></div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ons-page>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <script src="script.js"></script>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </body>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Recorder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/onsenui/css/onsenui.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/onsenui/css/onsen-css-components.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/onsenui/js/onsenui.min.js"></script>
+    <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+</head>
+<body>
+    <ons-page>
+        <ons-toolbar>
+            <div class="center">Audio Recorder</div>
+        </ons-toolbar>
+        <div class="content">
+            <div class="recorder">
+                <ons-button id="start">Start Recording</ons-button>
+                <ons-button id="stop" disabled>Stop Recording</ons-button>
+                <ons-button id="play" disabled>Play</ons-button>
+                <ons-button id="download" disabled>Download</ons-button>
+                <ons-list>
+                    <ons-list-item>
+                        <label for="noiseReduction" class="center">Noise Reduction:</label>
+                        <div class="right"><ons-switch id="noiseReduction"></ons-switch></div>
+                    </ons-list-item>
+                    <ons-list-item>
+                        <label for="inputQuality" class="center">Input Quality:</label>
+                        <div class="right">
+                            <ons-select id="inputQuality">
+                                <option value="192000_24">192kHz / 24bit</option>
+                                <option value="96000_24">96kHz / 24bit</option>
+                                <option value="48000_24">48kHz / 24bit</option>
+                                <option value="48000_16">48kHz / 16bit</option>
+                            </ons-select>
+                        </div>
+                    </ons-list-item>
+                    <ons-list-item>
+                        <label for="format" class="center">Output Format:</label>
+                        <div class="right">
+                            <ons-select id="format">
+                                <option value="wav">WAV</option>
+                                <option value="mp3">MP3</option>
+                                <option value="m4a">M4A</option>
+                            </ons-select>
+                        </div>
+                    </ons-list-item>
+                    <ons-list-item>
+                        <label for="outputQuality" class="center">Output Quality:</label>
+                        <div class="right">
+                            <ons-select id="outputQuality">
+                                <option value="44100_16">44.1kHz / 16bit (WAV)</option>
+                                <option value="48000_16">48kHz / 16bit (WAV)</option>
+                                <option value="96000_16">96kHz / 16bit (WAV)</option>
+                                <option value="192000_16">192kHz / 16bit (WAV)</option>
+                                <option value="64k">64 kbps (MP3)</option>
+                                <option value="128k">128 kbps (MP3)</option>
+                                <option value="256k">256 kbps (MP3)</option>
+                                <option value="320k">320 kbps (MP3)</option>
+                                <option value="128k_m4a">128 kbps (M4A)</option>
+                                <option value="256k_m4a">256 kbps (M4A)</option>
+                            </ons-select>
+                        </div>
+                    </ons-list-item>
+                </ons-list>
+            </div>
+            <div id="waveform"></div>
+        </div>
+    </ons-page>
+    <script src="script.js"></script>
+</body>
+</html>
