@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                                                             type: 'audio',
                                                                                         mimeType: 'audio/wav',
                                                                                                     numberOfAudioChannels: 1,
-                                                                                                                desiredSampRate: 48000,
+                                                                                                                desiredSampRate: 96000,
                                                                                                                             disableLogs: true
                                                                                                                                     });
 
