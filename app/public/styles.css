@@ -1,15 +1,15 @@
 body {
-        font-family: Arial, sans-serif;
-        }
+    font-family: Arial, sans-serif;
+}
 
-        .recorder {
-            margin: 20px;
-                text-align: center;
-                }
+.recorder {
+    margin: 20px;
+    text-align: center;
+}
 
-                #waveform {
-                    width: 100%;
-                        height: 200px;
-                            margin: 20px auto;
-                                background-color: #f3f3f3;
-                                }
+#waveform {
+    width: 100%;
+    height: 200px;
+    margin: 20px auto;
+    background-color: #f3f3f3;
+}
